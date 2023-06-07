@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:social_media_firebase/view/login/login_screen.dart';
+import 'package:social_media_firebase/view/signUp/signup_screen.dart';
 import 'package:social_media_firebase/view/splash/splash_screen.dart';
 import 'routes_name.dart';
 class Routes{
@@ -12,6 +13,8 @@ class Routes{
         return MaterialPageRoute(builder: (_) => SplashSceen());
       case RoutesNames.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case RoutesNames.signupcreen:
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       default:
         return MaterialPageRoute(builder: (_){
           return Scaffold(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_firebase/view_model/services/splash_services.dart';
 
 import '../../res/fonts.dart';
 class SplashSceen extends StatefulWidget {
@@ -9,6 +10,14 @@ class SplashSceen extends StatefulWidget {
 }
 
 class _SplashSceenState extends State<SplashSceen> {
+  SplashServices sp = SplashServices();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    sp.isLogin(context);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +30,9 @@ class _SplashSceenState extends State<SplashSceen> {
               Image(image: AssetImage('assets/images/logo.jpg')),
               const Padding(
                 padding:  EdgeInsets.symmetric(vertical: 20),
-                child: Center(child: Text('Tech Brothers Media' , style: TextStyle(fontFamily: AppFonts.sfProDisplayBold , fontSize: 40, fontWeight: FontWeight.w700),)),
+                child: Center(child: Text('Tech Brothers Media' ,
+                  style: TextStyle(fontFamily: AppFonts.sfProDisplayBold ,
+                      fontSize: 40, fontWeight: FontWeight.w700),)),
               )
             ],
           )

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
             bodySmall: TextStyle(fontSize: 12,fontFamily: AppFonts.sfProDisplayBold,color: AppColors.primaryTextTextColor,height: 1.6)
         ),
       ),
-      initialRoute: RoutesNames.loginScreen,
+      initialRoute: RoutesNames.splashScreen,
 onGenerateRoute: Routes.generateRoute,
     );
   }
