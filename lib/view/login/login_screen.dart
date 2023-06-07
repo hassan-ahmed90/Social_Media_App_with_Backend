@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:social_media_firebase/res/component/input_text_field.dart';
 import 'package:social_media_firebase/res/component/round_button.dart';
 import 'package:social_media_firebase/utils/routes/routes_name.dart';
+import 'package:social_media_firebase/utils/utils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -66,7 +67,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                                 myController: passController,
                                 focusNode: passFocus,
-                                onFieldSubmitteedValue: (value){},
+                                onFieldSubmitteedValue: (value){
+                                },
                                 keyboradType: TextInputType.text,
                                 hint: "Password"),
 
@@ -86,6 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   //SizedBox(height: 70,),
                   RoundButton(title: "Login", onpressed: (){
+                    if(_formkey.currentState!.validate()){
+
+                    }
 
                   }),
                   SizedBox(height: height*.03,),
