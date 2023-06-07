@@ -29,7 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<SignUpController>(context);
+  //  final provider = Provider.of<SignUpController>(context);
     final height= MediaQuery.of(context).size.height*1;
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 InputTextField(
                                     obscureText: false,
                                     onValidator: (value){
-                                      return value.isNull ? "Enter name" :null;
+                                      return value.isEmpty ? "Enter name" :null;
                                     },
                                     myController: userController,
                                     focusNode: userFocus,
@@ -76,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 InputTextField(
                                     obscureText: false,
                                     onValidator: (value){
-                                      return value.isNull ? "Enter email" :null;
+                                      return value.isEmpty ? "Enter email" :null;
                                     },
                                     myController: emailController,
                                     focusNode: emailFocus,
@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 InputTextField(
                                     obscureText: true,
                                     onValidator: (value){
-                                      return value.isNull ? "Enter password" :null;
+                                      return value.isEmpty ? "Enter password" :null;
                                     },
                                     myController: passController,
                                     focusNode: passFocus,
@@ -107,10 +107,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         loading:provider.loading,
                           title: "SignUp", onpressed: (){
                         if(_formkey.currentState!.validate()){
-                          provider.signUp(userController.text.toString(),
+                          provider.signUp(
+                              userController.text.toString(),
                               emailController.text.toString(),
                               passController.text.toString());
-
                         }
 
                       }),

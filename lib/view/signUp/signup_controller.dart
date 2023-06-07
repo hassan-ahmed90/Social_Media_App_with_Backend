@@ -10,8 +10,8 @@ class SignUpController with ChangeNotifier{
    bool _loading = false;
    bool get loading => _loading;
 
-   setLoading(bool loading){
-     _loading=loading;
+   setLoading(bool value){
+     _loading=value;
      notifyListeners();
    }
    void signUp(String username,String email,String password){
@@ -28,6 +28,8 @@ class SignUpController with ChangeNotifier{
        });
 
      }catch(e){
+       setLoading(false);
+       Utils.toasMessege(e.toString());
 
      }
 

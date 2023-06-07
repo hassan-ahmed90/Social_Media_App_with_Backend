@@ -12,11 +12,10 @@ class RoundButton extends StatelessWidget {
      this.loading=false,
 
    }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: loading ? null : onpressed,
+      onTap: onpressed,
       child: Container(
         height: 50,
         width: double.infinity,
@@ -24,7 +23,7 @@ class RoundButton extends StatelessWidget {
           color: color,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(child: loading ?CircularProgressIndicator():Text(title,style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 15,color: textColor),),),
+        child: Center(child: loading ?CircularProgressIndicator(color: Colors.white,):Text(title,style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 15,color: textColor),),),
       ),
 
     );
