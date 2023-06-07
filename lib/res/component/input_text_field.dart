@@ -30,6 +30,7 @@ class InputTextField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
       child: TextFormField(
+        cursorColor: Colors.black,
         controller: myController,
         focusNode: focusNode,
         onFieldSubmitted: onFieldSubmitteedValue,

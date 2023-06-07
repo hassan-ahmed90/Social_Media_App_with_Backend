@@ -16,6 +16,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
   final userController  = TextEditingController();
   final userFocus= FocusNode();
 
@@ -108,10 +109,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           title: "SignUp", onpressed: (){
                         if(_formkey.currentState!.validate()){
                           provider.signUp(
+                             context,
                               userController.text.toString(),
                               emailController.text.toString(),
                               passController.text.toString());
                         }
+                       // Navigator.pushNamed(context, RoutesNames.dashBoard);
 
                       }),
                       SizedBox(height: height*.03,),
