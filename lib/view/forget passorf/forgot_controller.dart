@@ -4,7 +4,7 @@ import 'package:social_media_firebase/utils/routes/routes_name.dart';
 import 'package:social_media_firebase/utils/utils.dart';
 import 'package:social_media_firebase/view_model/services/session_manager.dart';
 
-class LoginController with ChangeNotifier{
+class ForgotController with ChangeNotifier{
 
   FirebaseAuth auth = FirebaseAuth.instance;
   bool _loading = false;
@@ -14,16 +14,14 @@ class LoginController with ChangeNotifier{
     _loading=value;
     notifyListeners();
   }
-  void login(BuildContext context,String email,String password){
+  void forgotPass(BuildContext context,String email){
     setLoading(true);
 
     try{
-      auth.signInWithEmailAndPassword(email: email, password: password).then((value) {
-        SessionController().Uid=value.user?.uid.toString();
-
+      auth.sendPasswordResetEmail(email: email).then((value) {
         setLoading(false);
-        Utils.toasMessege("Succesfully Login");
-        Navigator.pushNamed(context, RoutesNames.dashBoard);
+        Navigator.pushNamed(context, RoutesNames.loginScreen);
+        Utils.toasMessege("Please check your Email");
       }).onError((error, stackTrace) {
         setLoading(false);
         Utils.toasMessege(error.toString());

@@ -1,10 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:social_media_firebase/res/component/input_text_field.dart';
 import 'package:social_media_firebase/res/component/round_button.dart';
 import 'package:social_media_firebase/utils/routes/routes_name.dart';
-import 'package:social_media_firebase/utils/utils.dart';
+import 'package:social_media_firebase/view/login/login_controler.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -26,6 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final height= MediaQuery.of(context).size.height*1;
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
@@ -52,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             InputTextField(
                                 obscureText: false,
                                 onValidator: (value){
-                                  return value.isNull ? "Enter email" :null;
+                                  return value.isEmpty ? "Enter email" :null;
                                 },
                                 myController: emailController,
                                 focusNode: emailFocus,
@@ -63,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             InputTextField(
                                 obscureText: true,
                                 onValidator: (value){
-                                  return value.isNull ? "Enter password" :null;
+                                  return value.isEmpty ? "Enter password" :null;
                                 },
                                 myController: passController,
                                 focusNode: passFocus,
@@ -77,9 +81,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                         "Forger Password",
-                        style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 15,decoration: TextDecoration.underline)
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.pushNamed(context, RoutesNames.forgetScreen);
+
+                      },
+                      child: Text(
+                           "Forger Password",
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 15,decoration: TextDecoration.underline)
+                      ),
                     ),
                   ),
                   SizedBox(height: height*.03,),
@@ -87,12 +97,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
                   //SizedBox(height: 70,),
-                  RoundButton(title: "Login", onpressed: (){
-                    if(_formkey.currentState!.validate()){
+                  ChangeNotifierProvider(create: (_)=>LoginController(),
+                  child: Consumer<LoginController>(
+                    builder: (context,provider,child){
+                      return RoundButton(title: "Login",loading: provider.loading, onpressed: (){
+                        if(_formkey.currentState!.validate()){
+                          provider.login(context, emailController.text.toString(), passController.text.toString());
+                        }
 
-                    }
-
-                  }),
+                      });
+                    },
+                  ),
+                  ),
                   SizedBox(height: height*.03,),
 
                   InkWell(

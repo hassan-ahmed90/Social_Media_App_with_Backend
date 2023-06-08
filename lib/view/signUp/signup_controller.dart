@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:social_media_firebase/utils/routes/routes_name.dart';
 import 'package:social_media_firebase/utils/utils.dart';
 
+import '../../view_model/services/session_manager.dart';
+
 class SignUpController with ChangeNotifier{
 
   FirebaseAuth auth = FirebaseAuth.instance;
@@ -22,6 +24,7 @@ class SignUpController with ChangeNotifier{
        setLoading(true);
 
        auth.createUserWithEmailAndPassword(email: email, password: password).then((value) {
+         SessionController().Uid=value.user?.uid.toString();
          setLoading(false);
          String id = DateTime.now().millisecond.toString();
          ref.child(id).set({
