@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:social_media_firebase/res/colors.dart';
 import 'package:social_media_firebase/utils/routes/routes_name.dart';
+import 'package:social_media_firebase/view/home_screen.dart';
 import 'package:social_media_firebase/view_model/services/session_manager.dart';
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -16,12 +17,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   FirebaseAuth auth = FirebaseAuth.instance;
   List<Widget> _buildScreen(){
     return [
-      Center(
-        child: GestureDetector(
-            onTap: (){Navigator.pushNamed(context, RoutesNames.loginScreen);
-              },
-            child: Text("Home")),
-      ),
+      HomeScreen(),
       Text("Chat"),
       Text("Add"),
       Text("Messege"),
