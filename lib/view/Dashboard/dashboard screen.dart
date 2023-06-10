@@ -30,7 +30,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       activeColorPrimary: AppColors.primaryIconColor,
       inactiveIcon: Icon(Icons.home,color: Colors.grey.shade100)),
       PersistentBottomNavBarItem(icon: Icon(Icons.message),
-          activeColorPrimary: AppColors.primaryIconColor,
+          //activeColorPrimary: AppColors.primaryIconColor,
     inactiveIcon: Icon(Icons.messenger,color: Colors.grey.shade100)),
       PersistentBottomNavBarItem(icon: Icon(Icons.add),
           activeColorPrimary: AppColors.primaryIconColor,
