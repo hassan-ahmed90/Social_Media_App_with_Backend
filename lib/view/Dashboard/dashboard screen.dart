@@ -18,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   List<Widget> _buildScreen(){
     return [
       HomeScreen(),
-      Text("Chat"),
+     // Text("Chat"),
       Text("Add"),
       Text("Messege"),
       Text("Profile"),
