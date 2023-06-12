@@ -19,7 +19,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return [
       HomeScreen(),
      // Text("Chat"),
-      Text("Add"),
+     // Text("Add"),
       Text("Messege"),
       Text("Profile"),
     ];
