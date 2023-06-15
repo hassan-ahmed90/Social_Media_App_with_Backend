@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:social_media_firebase/res/colors.dart';
+import 'package:social_media_firebase/view/Dashboard/Profile/profile.dart';
 import 'package:social_media_firebase/view/home_screen.dart';
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -19,8 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
      Text("Chat"),
      Text("Add"),
      Text("Messege"),
-      Text("Profile"),
-      Text("Profile"),
+      ProfileScreen(),
     ];
   }
   List<PersistentBottomNavBarItem> _navBarItem(){
