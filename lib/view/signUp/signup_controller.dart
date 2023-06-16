@@ -22,9 +22,9 @@ class SignUpController with ChangeNotifier{
 
      try{
        setLoading(true);
-
+       //SessionController().Uid = value.user?.Uid.toString(); with SessionController().uid = value.user?.uid;.
        auth.createUserWithEmailAndPassword(email: email, password: password).then((value) {
-         SessionController().Uid=value.user?.uid.toString();
+         SessionController().uid=value.user?.uid.toString();
          setLoading(false);
          String id = DateTime.now().millisecond.toString();
          ref.child(id).set({

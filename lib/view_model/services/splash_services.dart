@@ -15,7 +15,7 @@ class SplashServices{
 
 
     if(user!=null){
-      SessionController().Uid = user.uid.toString();
+      SessionController().uid = user.uid.toString();
       Timer(Duration(seconds: 4), () {
         Navigator.pushNamed(context, RoutesNames.dashBoard);
       });

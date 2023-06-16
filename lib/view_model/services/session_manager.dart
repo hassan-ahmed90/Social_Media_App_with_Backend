@@ -1,7 +1,7 @@
 
 class SessionController {
   static final SessionController _session = SessionController._internal();
-  String? Uid;
+  String? uid;
 
   factory SessionController() {
     return _session;

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:social_media_firebase/utils/routes/routes_name.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -14,7 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("HEY FLUTTER")
+
+          Center(child: InkWell(
+            onTap: (){
+              Navigator.pushNamed(context,RoutesNames.signupcreen);
+            },
+            child: Container(
+              color: Colors.blueGrey,
+              child: Text("LOGIN"),
+            ),
+          ))
         ],
 
       ),

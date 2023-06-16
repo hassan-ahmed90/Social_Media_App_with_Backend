@@ -19,7 +19,7 @@ class LoginController with ChangeNotifier{
 
     try{
       auth.signInWithEmailAndPassword(email: email, password: password).then((value) {
-        SessionController().Uid=value.user?.uid.toString();
+        SessionController().uid=value.user?.uid.toString();
 
         setLoading(false);
         Utils.toasMessege("Succesfully Login");
